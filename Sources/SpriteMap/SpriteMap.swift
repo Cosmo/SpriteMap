@@ -1,7 +1,7 @@
 import Foundation
 import CoreGraphics
 
-extension CGImage {
+public extension CGImage {
     static func mergeImages(_ images: [CGImage]) -> CGImage? {
         guard let firstImage = images.first else { return nil }
         let width = firstImage.width
@@ -47,4 +47,3 @@ extension CGImage {
         return self.imageAt(point: point, size: size)
     }
 }
-
