@@ -1,8 +1,8 @@
 import Foundation
 import CoreGraphics
 
-public extension CGImage {
-    static func mergeImages(_ images: [CGImage]) -> CGImage? {
+extension CGImage {
+    public static func mergeImages(_ images: [CGImage]) -> CGImage? {
         guard let firstImage = images.first else { return nil }
         let width = firstImage.width
         let height = firstImage.height
@@ -31,7 +31,7 @@ public extension CGImage {
         return data.withUnsafeMutableBytes(closure)
     }
     
-    func imageAt(point: CGPoint, size: CGSize) -> CGImage? {
+    public func imageAt(point: CGPoint, size: CGSize) -> CGImage? {
         let x = point.x * size.width
         let y = point.y * size.height
         let rect = CGRect(origin: CGPoint(x: x, y: y), size: size)
@@ -39,7 +39,7 @@ public extension CGImage {
         return croppedImage
     }
     
-    func imageAt(index: Int, size: CGSize) -> CGImage? {
+    public func imageAt(index: Int, size: CGSize) -> CGImage? {
         let columns = self.width / Int(size.width)
         let x = index % columns
         let y = index / columns
