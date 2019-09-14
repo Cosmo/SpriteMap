@@ -61,3 +61,12 @@ Useful when you have multiple parts as sprites (body, mouth, eyes).
 let image = CGImage.mergeImages([bodyImage, mouthImage, eyesImage])
 ```
 CGImage.mergeImages()
+
+## Contact
+
+* Devran "Cosmo" Uenal
+* Twitter: [@maccosmo](http://twitter.com/maccosmo)
+
+## License
+
+SpriteMap is released under the [MIT License](http://www.opensource.org/licenses/MIT).
