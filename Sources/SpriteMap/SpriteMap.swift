@@ -30,5 +30,21 @@ extension CGImage {
         
         return data.withUnsafeMutableBytes(closure)
     }
+    
+    func imageAt(point: CGPoint, size: CGSize) -> CGImage? {
+        let x = point.x * size.width
+        let y = point.y * size.height
+        let rect = CGRect(origin: CGPoint(x: x, y: y), size: size)
+        guard let croppedImage = self.cropping(to: rect) else { return nil }
+        return croppedImage
+    }
+    
+    func imageAt(index: Int, size: CGSize) -> CGImage? {
+        let columns = self.width / Int(size.width)
+        let x = index % columns
+        let y = index / columns
+        let point = CGPoint(x: x, y: y)
+        return self.imageAt(point: point, size: size)
+    }
 }
 
