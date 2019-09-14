@@ -2,6 +2,8 @@ import Foundation
 import CoreGraphics
 
 extension CGImage {
+    /// Returns an optional `CGImage`.
+    /// Takes multiple `CGImage` elements and merges them into one.
     public static func mergeImages(_ images: [CGImage]) -> CGImage? {
         guard let firstImage = images.first else { return nil }
         let width = firstImage.width
@@ -31,6 +33,8 @@ extension CGImage {
         return data.withUnsafeMutableBytes(closure)
     }
     
+    /// Returns an optional `CGImage`.
+    /// Provide the coordinates as `CGPoint` and the size of your single sprite as `CGSize`.
     public func imageAt(point: CGPoint, size: CGSize) -> CGImage? {
         let x = point.x * size.width
         let y = point.y * size.height
@@ -39,6 +43,8 @@ extension CGImage {
         return croppedImage
     }
     
+    /// Returns an optional `CGImage`.
+    /// Provide the index as `Int` and the size of your single sprite as `CGSize`.
     public func imageAt(index: Int, size: CGSize) -> CGImage? {
         let columns = self.width / Int(size.width)
         let x = index % columns

@@ -8,7 +8,9 @@ SpriteMap helps you to extract sprites out of a sprite map.
 
 ## By coordinates
 
-`imageAt(point: CGPoint, size: CGSize) -> CGImage?`
+```swift
+imageAt(point: CGPoint, size: CGSize) -> CGImage?
+```
 
 Returns an optional `CGImage`.
 
@@ -24,7 +26,10 @@ let sprite = spriteMap.imageAt(point: CGPoint(x: 2, y: 2), size: CGSize(width: 2
 
 
 ## By index
-`imageAt(index: Int, size: CGSize) -> CGImage?`
+
+```swift
+imageAt(index: Int, size: CGSize) -> CGImage?`
+```
 
 Returns an optional `CGImage`.
 
@@ -42,7 +47,9 @@ let sprite = spriteMap.imageAt(index: 8, size: CGSize(width: 200, height: 200))
 
 ## Merge multiple images to one
 
-`mergeImages(_ images: [CGImage]) -> CGImage?`
+```swift
+mergeImages(_ images: [CGImage]) -> CGImage?`
+```
 
 Returns an optional `CGImage`.
 
