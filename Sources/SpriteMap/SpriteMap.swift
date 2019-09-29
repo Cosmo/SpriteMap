@@ -36,9 +36,8 @@ extension CGImage {
     /// Returns an optional `CGImage`.
     /// Provide the coordinates as `CGPoint` and the size of your single sprite as `CGSize`.
     public func imageAt(point: CGPoint, size: CGSize) -> CGImage? {
-        let x = point.x * size.width
-        let y = point.y * size.height
-        let rect = CGRect(origin: CGPoint(x: x, y: y), size: size)
+        let origin = CGPoint(x: point.x * size.width, y: point.y * size.height)
+        let rect = CGRect(origin: origin, size: size)
         guard let croppedImage = self.cropping(to: rect) else { return nil }
         return croppedImage
     }
@@ -47,8 +46,7 @@ extension CGImage {
     /// Provide the index as `Int` and the size of your single sprite as `CGSize`.
     public func imageAt(index: Int, size: CGSize) -> CGImage? {
         let columns = self.width / Int(size.width)
-        let x = index % columns
-        let y = index / columns
+        let (y, x) = index.quotientAndRemainder(dividingBy: columns)
         let point = CGPoint(x: x, y: y)
         return self.imageAt(point: point, size: size)
     }
